@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Battleship
 {
-    class Ship
+    internal class Ship
     {
-        private readonly string _name;
-        private readonly int _size;
+        public readonly string Name;
+        public readonly int Size;
 
         public Ship(string name, int size)
         {
-            _name = name;
-            _size = size;
+            // Ships must be at least 1 cell in size
+            if (size < 1)
+                throw new ArgumentException("A ships size can not be less than one!");
+
+            Name = name;
+            Size = size;
         }
     }
 }
